@@ -1,0 +1,174 @@
+name: Trips
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/trips
+    metadata:
+      groupName: Trips
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Search for available trips based on criteria.'
+      description: |-
+        This endpoint provides a way to search for available flights based on a set of criteria
+        such as departure and arrival locations, flight type, and other optional parameters.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      from:
+        name: from
+        description: 'The airport code for the departure location.'
+        required: true
+        example: YUL
+        type: string
+        custom: []
+      to:
+        name: to
+        description: 'The airport code for the arrival location.'
+        required: true
+        example: YVR
+        type: string
+        custom: []
+      type:
+        name: type
+        description: "Type of the flight. Must be one of: 'one-way', 'roundtrip'."
+        required: true
+        example: one-way
+        type: string
+        custom: []
+      pagesize:
+        name: pagesize
+        description: 'The number of results to return per page. Minimum: 1, Maximum: 100.'
+        required: false
+        example: 10
+        type: integer
+        custom: []
+      airline:
+        name: airline
+        description: 'An optional filter to search flights by specific airlines.'
+        required: false
+        example: AC
+        type: string
+        custom: []
+      maxduration:
+        name: maxduration
+        description: 'An optional filter for the maximum duration of flights in minutes.'
+        required: false
+        example: 1800
+        type: integer
+        custom: []
+      maxprice:
+        name: maxprice
+        description: 'An optional filter for the maximum price of flights.'
+        required: false
+        example: 3000
+        type: integer
+        custom: []
+      sortby:
+        name: sortby
+        description: "An optional sorting parameter. Must be one of: 'price', 'duration'."
+        required: false
+        example: price
+        type: string
+        custom: []
+    cleanQueryParameters:
+      from: YUL
+      to: YVR
+      type: one-way
+      pagesize: 10
+      airline: AC
+      maxduration: 1800
+      maxprice: 3000
+      sortby: price
+    bodyParameters:
+      from:
+        name: from
+        description: ''
+        required: true
+        example: consectetur
+        type: string
+        custom: []
+      to:
+        name: to
+        description: ''
+        required: true
+        example: quia
+        type: string
+        custom: []
+      type:
+        name: type
+        description: 'Must be one of <code>one-way</code> or <code>roundtrip</code>.'
+        required: true
+        example: roundtrip
+        type: string
+        custom: []
+      pagesize:
+        name: pagesize
+        description: 'Must be at least 1. Must not be greater than 100.'
+        required: false
+        example: 19
+        type: integer
+        custom: []
+      airline:
+        name: airline
+        description: ''
+        required: false
+        example: omnis
+        type: string
+        custom: []
+      maxduration:
+        name: maxduration
+        description: ''
+        required: false
+        example: 13
+        type: integer
+        custom: []
+      maxprice:
+        name: maxprice
+        description: ''
+        required: false
+        example: 2
+        type: integer
+        custom: []
+      sortby:
+        name: sortby
+        description: 'Must be one of <code>price</code> or <code>duration</code>.'
+        required: false
+        example: price
+        type: string
+        custom: []
+    cleanBodyParameters:
+      from: consectetur
+      to: quia
+      type: roundtrip
+      pagesize: 19
+      airline: omnis
+      maxduration: 13
+      maxprice: 2
+      sortby: price
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[],"pagination":{"current_page":1,"total":1}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '52'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
