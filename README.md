@@ -4,7 +4,7 @@ TripBuilder is a comprehensive flight search application made with a Laravel-bas
 
 ## Prerequisites
 
-- php, php-sqlite3, php-dom. php-curl & php-xml >= **8.1**
+- php, php-sqlite3, php-dom, php-curl & php-xml >= **8.1**
 - Composer
 - Laravel Framework
 - Nginx
@@ -21,19 +21,22 @@ Make sure at least php 8.1 and all the extensions are installed
    cd tripbuilder-backend
    ```
 2. Install PHP dependencies:
+
    ```bash
    composer install
    ```
-3. Migrate and seed database information:
 
-   ```bash
-   php artisan migrate:refresh --seed
-   ```
-
-4. Create required .env file
+3. Create required .env file
 
    ```
    DB_CONNECTION=sqlite
+   ```
+
+4. Create database.sqlite, migrate and seed database information:
+
+   ```bash
+   touch database/database.sqlite
+   php artisan migrate:refresh --seed
    ```
 
 5. Serve Laravel application:
